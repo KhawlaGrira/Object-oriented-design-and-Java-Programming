@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/Prosit 1.iml" filepath="$PROJECT_DIR$/Prosit 1.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/Prosit 2.iml" filepath="$PROJECT_DIR$/Prosit 2.iml" />
+>>>>>>> d06a318 (Prosit 2)
     </modules>
   </component>
 </project>
