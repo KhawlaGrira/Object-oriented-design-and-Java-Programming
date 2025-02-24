@@ -1,12 +1,16 @@
 class Zoo {
     private Animal[] animals;
+    private Aquatic[] aquaticAnimals;
     private String name;
     private String city;
     private final int nbrCages = 25;
+    private final int nbrAquaticCages = 10;
     private int animalCount = 0;
+    private int aquaticAnimalCount = 0;
 
     public Zoo(String name, String city) {
         this.animals = new Animal[nbrCages];
+        this.aquaticAnimals = new Aquatic[nbrAquaticCages];
         this.name = name;
         this.city = city;
     }
@@ -79,5 +83,44 @@ class Zoo {
             System.out.println("Both zoos have the same number of animals.");
             return null;
         }
+    }
+
+    public void addAquaticAnimal(Aquatic aquatic) {
+        if (aquaticAnimalCount >= nbrAquaticCages) {
+            System.out.println("Aquatic animal section is full. Cannot add more aquatic animals.");
+            return;
+        }
+        aquaticAnimals[aquaticAnimalCount++] = aquatic;
+    }
+
+    public void displaySwim() {
+        for (int i = 0; i < aquaticAnimalCount; i++) {
+            aquaticAnimals[i].swim();
+        }
+    }
+
+    public float maxPenguinSwimmingDepth() {
+        float maxDepth = 0.0f;
+        for (int i = 0; i < aquaticAnimalCount; i++) {
+            if (aquaticAnimals[i] instanceof Penguin) {
+                Penguin penguin = (Penguin) aquaticAnimals[i];
+                if (penguin.getSwimmingDepth() > maxDepth)
+                    maxDepth = penguin.getSwimmingDepth();
+            }
+        }
+        return maxDepth;
+    }
+
+    public void displayNumberOfAquaticsByType() {
+        int dolphinCount = 0;
+        int penguinCount = 0;
+        for (int i = 0; i < aquaticAnimalCount; i++) {
+            if (aquaticAnimals[i] instanceof Dolphin)
+                dolphinCount++;
+            else if (aquaticAnimals[i] instanceof Penguin)
+                penguinCount++;
+        }
+        System.out.println("Number of dolphins: " + dolphinCount);
+        System.out.println("Number of penguins: " + penguinCount);
     }
 }

@@ -1,23 +1,22 @@
 public class ZooManagement {
     public static void main(String[] args) {
-        Aquatic aquaticAnimal = new Aquatic();
-        Dolphin dolphin = new Dolphin();
-        Penguin penguin = new Penguin();
+        Zoo zoo = new Zoo("My Zoo", "My City");
 
-        Aquatic aquatic1 = new Aquatic("Aquatic", "Fish", 2, false, "Ocean");
-        Dolphin dolphin1 = new Dolphin("Aquatic", "Dolphin", 10, true, "Ocean", 45.5f);
-        Penguin penguin1 = new Penguin("Aquatic", "Penguin", 3, true, "Antarctic", 100.0f);
+        Aquatic dolphin = new Dolphin("Aquatic", "Dolphin", 10, true, "Ocean", 45.5f);
+        Aquatic penguin1 = new Penguin("Aquatic", "Penguin1", 3, true, "Antarctic", 100.0f);
+        Aquatic penguin2 = new Penguin("Aquatic", "Penguin2", 5, true, "Antarctic", 150.0f);
 
-        System.out.println(aquaticAnimal);
-        System.out.println(dolphin);
-        System.out.println(penguin);
+        zoo.addAquaticAnimal(dolphin);
+        zoo.addAquaticAnimal(penguin1);
+        zoo.addAquaticAnimal(penguin2);
 
-        System.out.println(aquatic1);
-        System.out.println(dolphin1);
-        System.out.println(penguin1);
+        zoo.displaySwim();
 
-        aquatic1.swim();
-        dolphin1.swim();
-        penguin1.swim();
+        System.out.println("Max penguin swimming depth: " + zoo.maxPenguinSwimmingDepth());
+
+        zoo.displayNumberOfAquaticsByType();
+
+        Aquatic penguin3 = new Penguin("Aquatic", "Penguin1", 3, true, "Antarctic", 100.0f);
+        System.out.println("Penguin1 equals Penguin3: " + penguin1.equals(penguin3));
     }
 }
