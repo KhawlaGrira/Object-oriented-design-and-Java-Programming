@@ -65,15 +65,16 @@ class Zoo {
     }
 
     public boolean isZooFull() {
+
         return animalCount >= nbrCages;
     }
 
     public static Zoo comparerZoo(Zoo z1, Zoo z2) {
-        if (z1.animalCount > z2.animalCount) {
+        if (z1.animalCount > z2.animalCount)
             return z1;
-        } else if (z1.animalCount < z2.animalCount) {
+        else if (z1.animalCount < z2.animalCount)
             return z2;
-        } else {
+        else {
             System.out.println("Both zoos have the same number of animals.");
             return null;
         }
