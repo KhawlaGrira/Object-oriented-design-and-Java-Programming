@@ -1,9 +1,9 @@
 class Zoo {
-    Animal[] animals;
-    String name;
-    String city;
-    final int nbrCages = 25;
-    int animalCount = 0;
+    private Animal[] animals;
+    private String name;
+    private String city;
+    private final int nbrCages = 25;
+    private int animalCount = 0;
 
     public Zoo(String name, String city) {
         this.animals = new Animal[nbrCages];
@@ -26,7 +26,7 @@ class Zoo {
             return false;
         }
         for (int i = 0; i < animalCount; i++) {
-            if (animals[i].name.equals(animal.name)) {
+            if (animals[i].getName().equals(animal.getName())) {
                 System.out.println("Animal already exists in the zoo.");
                 return false;
             }
@@ -38,13 +38,14 @@ class Zoo {
     public void displayAnimals() {
         System.out.println("Animals in the zoo:");
         for (int i = 0; i < animalCount; i++) {
-            System.out.println(animals[i]);
+            Animal animal = animals[i];
+            System.out.println("Name: " + animal.getName() + ", Family: " + animal.getFamily() + ", Age: " + animal.getAge());
         }
     }
 
     public int searchAnimal(Animal animal) {
         for (int i = 0; i < animalCount; i++) {
-            if (animals[i].name.equals(animal.name)) {
+            if (animals[i].getName().equals(animal.getName())) {
                 return i;
             }
         }
